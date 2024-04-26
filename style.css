@@ -1,0 +1,67 @@
+/* ---------------FOR USING LORA FONT------------------ */
+@font-face {
+  font-family: "Garamond";
+  font-style: normal;
+  font-weight: 400;
+  src: local("EB Garamond Regular"), local("EBGaramond-Regular"),
+    url(path_to_your_font/EBGaramond-Regular.ttf) format("truetype");
+}
+
+.garamond-font {
+  font-family: "Garamond", serif;
+}
+
+/* -------------- CUSTOME SCROLLBAR FOR CREATE SECTION----------- */
+.scrollbar::-webkit-scrollbar {
+  width: 66px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: rgb(22, 24, 40);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(22, 24, 40);
+  border-radius: 6px;
+  border: 1px solid rgb(22, 24, 40);
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(22, 24, 40);
+}
+
+/* -------------ANIMATION FOR SMALL DEVICES NAVBAR AND FOR PAYMENT METHODS---------------- */
+.scale-up-bottom {
+  -webkit-animation: scale-up-bottom 0.7s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-bottom 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-bottom {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+}
+@keyframes scale-up-bottom {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+  }
+}

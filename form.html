@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment now</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div
+        class="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300"
+      >
+        <h2 class="text-2xl font-bold mb-4">Payment Method</h2>
+        <div class="mb-6">
+          <div class="flex flex-col md:flex-row gap-4 mb-4">
+            <button
+              id="visaButton"
+              class="flex-1 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition duration-300 flex items-center justify-center"
+            >
+              <img src="images/visa.jpg" alt="Visa" class="w-6 h-6 mr-2" /> Visa
+            </button>
+            <button
+              id="paypalButton"
+              class="flex-1 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition duration-300 flex items-center justify-center"
+            >
+              <img
+                src="images/paypalLogo.png"
+                alt="PayPal"
+                class="w-6 h-6 mr-2"
+              />
+              PayPal
+            </button>
+            <button
+              id="debitCardButton"
+              class="flex-1 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition duration-300 flex items-center justify-center"
+            >
+              <img
+                src="images/debitCard.jpg"
+                alt="Debit Card"
+                class="w-6 h-6 mr-2"
+              />
+              Debit Card
+            </button>
+            <!-- Add more buttons for other payment methods if necessary -->
+          </div>
+          <div id="paymentForm" class="space-y-4">
+            <!-- Dynamic fields will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const paymentForm = document.getElementById("paymentForm");
+
+      document
+        .getElementById("visaButton")
+        .addEventListener("click", function () {
+          paymentForm.innerHTML = `
+          <div class="max-w-md mx-auto p-8 bg-gray-100 rounded-lg shadow-lg scale-up-bottom">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Pay with Visa Card</h2>
+ 
+  <form>
+    <div class="mb-4">
+      <label for="cardholderName" class="block text-sm font-medium text-gray-700">Cardholder Name</label>
+      <input type="text" id="cardholderName" class="mt-1 p-2 w-full border rounded-md" required>
+    </div>
+    <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" class="mt-1 p-2 w-full border rounded-md" required>
+    </div>
+    <div class="md:flex md:space-x-4">
+      <div class="md:w-1/2">
+        <label for="expiryDate" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+        <input type="text" id="expiryDate" class="mt-1 p-2 w-full border rounded-md" placeholder="MM / YY" required>
+      </div>
+      <div class="md:w-1/2">
+        <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+        <input type="password" id="cvv" class="mt-1 p-2 w-full border rounded-md" maxlength="3" pattern="[0-9]{3}" title="CVV must be 3 digits" required>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+      <select id="amount" name="amount" class="mt-1 p-2 w-full border rounded-md bg-gray-100 focus:outline-none focus:ring focus:border-blue-500">
+        <option value="4" class="text-gray-900">Basic - $4</option>
+        <option value="8" class="text-gray-900">Advanced - $8</option>
+        <option value="12" class="text-gray-900">Premium - $12</option>
+      </select>
+    </div>
+    <div class="flex items-center justify-between">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Pay Now</button>
+      <img src="images/visaLogo.png" alt="visa" class="h-16">
+    </div>
+  </form>
+</div>
+
+
+
+
+
+ `;
+        });
+
+      document
+        .getElementById("paypalButton")
+        .addEventListener("click", function () {
+          paymentForm.innerHTML = `
+          <div class="max-w-md mx-auto p-8 bg-gray-100 rounded-lg shadow-lg scale-up-bottom">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Pay with PayPal</h2>
+  <form>
+    <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" name="cardNumber" class="mt-1 p-2 w-full border rounded-md">
+    </div>
+    <div class="mb-4">
+      <label for="expiration" class="block text-sm font-medium text-gray-700">Expiration Date</label>
+      <input type="text" id="expiration" name="expiration" placeholder="MM/YY" class="mt-1 p-2 w-full border rounded-md">
+    </div>
+    <div class="mb-4">
+      <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+      <input type="password" id="cvv" class="mt-1 p-2 w-full border rounded-md" maxlength="3" pattern="[0-9]{3}" title="CVV must be 3 digits" required">
+    </div>
+    <div class="mb-4">
+      <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+      <select id="amount" name="amount" class="mt-1 p-2 w-full border rounded-md bg-gray-100 focus:outline-none focus:ring focus:border-blue-500">
+  <option value="4" class="text-gray-900">Basic - $4</option>
+  <option value="8" class="text-gray-900">Standard - $8</option>
+  <option value="12" class="text-gray-900">Premium - $12</option>
+</select>
+
+    </div>
+    <div class="flex items-center justify-between">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Pay Now</button>
+      <img src="images/paypal.png" alt="PayPal" class="h-20">
+    </div>
+  </form>
+</div>
+
+
+`;
+        });
+      document
+        .getElementById("debitCardButton")
+        .addEventListener("click", function () {
+          paymentForm.innerHTML = `
+          <div class="max-w-md mx-auto p-8 bg-gray-100 rounded-lg shadow-lg scale-up-bottom">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Pay with Debit Card</h2>
+ 
+  <form>
+    <div class="mb-4">
+      <label for="cardholderName" class="block text-sm font-medium text-gray-700">Cardholder Name</label>
+      <input type="text" id="cardholderName" class="mt-1 p-2 w-full border rounded-md" required>
+    </div>
+    <div class="mb-4">
+      <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+      <input type="text" id="cardNumber" class="mt-1 p-2 w-full border rounded-md" required>
+    </div>
+    <div class="md:flex md:space-x-4">
+      <div class="md:w-1/2">
+        <label for="expiryDate" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+        <input type="text" id="expiryDate" class="mt-1 p-2 w-full border rounded-md" placeholder="MM / YY" required>
+      </div>
+      <div class="md:w-1/2">
+        <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+        <input type="password" id="cvv" class="mt-1 p-2 w-full border rounded-md" maxlength="3" pattern="[0-9]{3}" title="CVV must be 3 digits" required>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+      <select id="amount" name="amount" class="mt-1 p-2 w-full border rounded-md bg-gray-100 focus:outline-none focus:ring focus:border-blue-500">
+        <option value="4" class="text-gray-900">Basic - $4</option>
+        <option value="8" class="text-gray-900">Advanced - $8</option>
+        <option value="12" class="text-gray-900">Premium - $12</option>
+      </select>
+    </div>
+    <div class="flex items-center justify-between">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Pay Now</button>
+      <img src="images/debit.png" alt="Debit Card" class="h-16">
+    </div>
+  </form>
+</div>
+
+
+`;
+        });
+    </script>
+  </body>
+</html>
